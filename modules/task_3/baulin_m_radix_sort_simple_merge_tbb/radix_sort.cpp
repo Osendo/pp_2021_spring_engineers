@@ -121,7 +121,6 @@ std::vector<double> RadixSort(const std::vector<double>& source) {
 
   bunchesCount = bunches.size();
 
-  
   tbb::parallel_for(int(0), bunchesCount, [&](int i) {
     auto sortedBunch = serialRadixSort(bunches[i]);
     sortedVectors.push_back(sortedBunch);

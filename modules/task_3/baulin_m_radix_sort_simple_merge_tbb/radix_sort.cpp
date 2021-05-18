@@ -112,11 +112,11 @@ std::vector<double> RadixSort(const std::vector<double>& source) {
   int bunchesCount = bunches.size();
 
   for (size_t i = 0; i < source.size(); i += bunch_size) {
-    auto last = min(source.size(), i + bunch_size);
+    auto last = std::min(source.size(), i + bunch_size);
     auto index = i / bunch_size;
     auto& vec = bunches[index];
     vec.reserve(last - i);
-    move(source.begin() + i, source.begin() + last, back_inserter(vec));
+    std::move(source.begin() + i, source.begin() + last, back_inserter(vec));
   }
 
   bunchesCount = bunches.size();
